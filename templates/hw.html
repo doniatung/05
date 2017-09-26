@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Job Percentages
+    </title>
+  </head>
+
+  <body>
+    <h1>Table of occupations.csv</h1>
+
+    <table style="width:100%">
+      <tr>
+	<th>Job Title</th>
+	<th>Percentage</th>
+      </tr>
+
+      {% for i in d %}
+      <tr>
+	<td>{{i}}</td>
+	<td>{{d[i]}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

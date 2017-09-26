@@ -1,4 +1,7 @@
+from flask import Flask
 import random
+
+my_app = Flask(__name__)
 
 def read(csv):
     thefile = open(csv, 'r')
@@ -34,13 +37,10 @@ def pickOne(d):
             l.append(key)
             counter = counter + 1
     return l[random.randint(0,len(l)-1)]
-#this is a kinda inefficient way to pick a key from a dictionary following Mr. DW's rule, but basically what it does is multiply the key's value by 10 and add the key that number of times to a separate list. Then, a random entry is chosen from the list.  
-        
-    
-    
 
-#print makeDictionary(read("occupations.csv"))
-print pickOne(makeDictionary(read("occupations.csv")))
-print pickOne(makeDictionary(read("occupations.csv")))
-print pickOne(makeDictionary(read("occupations.csv")))
-print pickOne(makeDictionary(read("occupations.csv")))
+def htmlOutput():
+    return render_template('hw.html', makeDictionary(read("occupations.csv")))
+
+@my_app.route("/occupations")
+def root():
+    return htmlOutput()
