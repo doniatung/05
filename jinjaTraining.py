@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 import random
 
 my_app = Flask(__name__)
@@ -44,3 +45,7 @@ def htmlOutput():
 @my_app.route("/occupations")
 def root():
     return htmlOutput()
+
+if __name__ == '__main__':
+    my_app.debug = "true"
+    my_app.run()
