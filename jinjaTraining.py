@@ -40,7 +40,7 @@ def pickOne(d):
     return l[random.randint(0,len(l)-1)]
 
 def htmlOutput():
-    return render_template('hw.html', d = makeDictionary(read("occupations.csv")))
+    return render_template('hw.html', d = makeDictionary(read("occupations.csv"))) + pickOne(makeDictionary(read("occupations.csv")))
 
 @my_app.route("/occupations")
 def root():
