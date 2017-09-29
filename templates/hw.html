@@ -9,6 +9,11 @@
 
   <body>
     <h1>Table of occupations.csv</h1>
+    
+    <h3> Your Random Job: {{randJob}}</h3>
+    {% block randJob %}
+    <h3></h3>
+    {% endblock %}
 
     <table style="width:100%">
       <tr>
@@ -16,10 +21,10 @@
 	<th>Percentage</th>
       </tr>
 
-      {% for i in d %}
+      {% for i in dictionary %}
       <tr>
 	<td>{{i}}</td>
-	<td>{{d[i]}}</td>
+	<td>{{dictionary[i]}}</td>
       </tr>
       {% endfor %}
     </table>
